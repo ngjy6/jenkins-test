@@ -12,13 +12,13 @@ pipeline {
 				echo "Git commit: ${env.GIT_COMMIT}"
 				
 				script {
-					env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-					env.GIT_AUTHOR = sh (script: 'git log -1 --pretty=%cn ${GIT_COMMIT}', returnStdout: true).trim()
+					withEnv(['GIT_PATH=C:\\Program Files\\Git\\bin',]) {
+						env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+					}
 				}
 				
 				echo "Git commit message: ${env.GIT_COMMIT_MSG}"
 				
-				echo "Git author: ${env.GIT_AUTHOR}"
             }
         }
         stage('Test') {
