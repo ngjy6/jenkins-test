@@ -12,7 +12,7 @@ pipeline {
 				echo "Git commit: ${env.GIT_COMMIT}"
 				
 				script {
-					env.GIT_COMMIT_MSG = sh (script: 'C:\\Program Files\\Git\\bin\\git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+					env.GIT_COMMIT_MSG = sh (script: 'C:/Program Files/Git/bin/git.exe" log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
 				}
 				
 				echo "Git commit message: ${env.GIT_COMMIT_MSG}"
