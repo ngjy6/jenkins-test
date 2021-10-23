@@ -7,11 +7,13 @@ pipeline {
                 echo 'Building..'
 				echo "Git commit: ${env.GIT_COMMIT}"
 				
+				script {
+					env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+					env.GIT_AUTHOR = sh (script: 'git log -1 --pretty=%cn ${GIT_COMMIT}', returnStdout: true).trim()
+				}
 				
-				env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
 				echo "Git commit message: ${env.GIT_COMMIT_MSG}"
 				
-                env.GIT_AUTHOR = sh (script: 'git log -1 --pretty=%cn ${GIT_COMMIT}', returnStdout: true).trim()
 				echo "Git author: ${env.GIT_AUTHOR}"
             }
         }
