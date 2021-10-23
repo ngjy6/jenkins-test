@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+				echo "${env.GIT_COMMIT}"
             }
         }
         stage('Test') {
