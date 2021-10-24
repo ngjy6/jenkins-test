@@ -21,6 +21,10 @@ pipeline {
 				echo "Git author: ${env.GIT_AUTHOR}"
 				echo "Git last commit user: ${env.GIT_LAST_COMMIT_USER}"
 				
+				echo "Env job name: ${env.JOB_NAME}"
+				echo "Env job base name: ${env.JOB_BASE_NAME}"
+				
+				
             }
         }
         stage('Test') {
