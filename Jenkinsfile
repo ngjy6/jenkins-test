@@ -23,6 +23,9 @@ pipeline {
 				
 				echo "Env job name: ${env.JOB_NAME}"
 				echo "Env job base name: ${env.JOB_BASE_NAME}"
+				echo "Env branch name: ${env.BRANCH_NAME}"
+				echo "Env workspace: ${env.WORKSPACE}"
+				echo "Env workspace temp: ${env.WORKSPACE_TMP}"
 				
 				
             }
