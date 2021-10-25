@@ -17,7 +17,7 @@ pipeline {
 					env.GIT_LAST_COMMIT_USER = sh (script: '"C:/Program Files/Git/bin/git.exe" log -1 --pretty=format:"%an"', returnStdout: true).trim()
 					env.LS = sh (script: 'ls -l', returnStdout: true).trim()
 					
-					env.REPO_NAME = sh(script: 'echo ${basename ${GIT_URL%.git})', returnStdout: true)
+					env.REPO_NAME = sh(script: 'echo $(basename ${GIT_URL%.git})', returnStdout: true)
 					echo "${env.REPO_NAME}"
 					
 				}
