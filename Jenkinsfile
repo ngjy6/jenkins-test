@@ -41,12 +41,12 @@ pipeline {
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
-			"C:\Users\STARLORD\AppData\Local\Programs\Python\Python37\python3.exe" -m venv ~/.somevenv
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m venv ~/.somevenv
 			source ~/.somevenv/bin/activate
 			pip install --upgrade pip &&\
   			pip install -r requirements.txt
 			touch __init__.py
-			"C:\Users\STARLORD\AppData\Local\Programs\Python\Python37\python3.exe" -m pylint --output-formate=parseable.py
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m pylint --output-formate=parseable.py
 		'''
             }
         }
