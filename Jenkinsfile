@@ -19,6 +19,8 @@ pipeline {
 					
 					env.REPO_NAME = sh(script: 'echo $(basename ${GIT_URL%.git})', returnStdout: true)
 					echo "Git repo name: ${env.REPO_NAME}"
+
+					env.JOB_NAME_UNDERSCORE = env.JOB_NAME.replaceAll('/', '_')
 					
 				}
 				
@@ -27,6 +29,7 @@ pipeline {
 				echo "Git last commit user: ${env.GIT_LAST_COMMIT_USER}"
 				
 				echo "Env job name: ${env.JOB_NAME}"
+		                echo "Env job name underscore: ${env.JOB_NAME_UNDERSCORE}"
 				echo "Env job base name: ${env.JOB_BASE_NAME}"
 				echo "Env branch name: ${env.BRANCH_NAME}"
 				echo "Env workspace: ${env.WORKSPACE}"
