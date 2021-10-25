@@ -42,11 +42,11 @@ pipeline {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
 			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m venv ~/.somevenv
-			source ~/.somevenv/bin/activate
-			pip install --upgrade pip &&\
-  			pip install -r requirements.txt
+			source "C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/.somevenv/bin/activate"
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install --upgrade pip &&\
+  			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install -r requirements.txt
 			touch __init__.py
-			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m pylint --output-formate=parseable.py
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m pylint --output-format=parseable
 		'''
             }
         }
