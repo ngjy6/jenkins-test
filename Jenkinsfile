@@ -34,6 +34,7 @@ pipeline {
 				echo "Git author: ${env.GIT_AUTHOR}"
 				echo "Git commiter name: ${env.GIT_COMMITTER_NAME}"
 				
+		    
 				echo "Env job name: ${env.JOB_NAME}"
 		                echo "Env job name underscore: ${env.JOB_NAME_UNDERSCORE}"
 				echo "Env job base name: ${env.JOB_BASE_NAME}"
