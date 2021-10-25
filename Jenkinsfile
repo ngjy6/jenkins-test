@@ -24,7 +24,6 @@ pipeline {
 					echo "Git repo name: ${env.REPO_NAME}"
 
 					env.JOB_NAME_UNDERSCORE = env.JOB_NAME.replaceAll('/', '_')
-					
 				}
 				
 				echo "Git commit message: ${env.GIT_COMMIT_MSG}"
