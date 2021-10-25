@@ -16,7 +16,7 @@ pipeline {
 					env.GIT_AUTHOR = sh (script: '"C:/Program Files/Git/bin/git.exe" log -1 --pretty=%cn ${GIT_COMMIT}', returnStdout: true).trim()
 					
 					env.GIT_LAST_COMMIT_USER = sh (script: '"C:/Program Files/Git/bin/git.exe" log -1 --pretty=format:"%an"', returnStdout: true).trim()
-					env.GIT_LAST_COMMIT_USER2 = sh(script: 'git log $GIT_PREVIOUS_COMMIT..$GIT_COMMIT --pretty=format:%an', returnStdout: true).trim()
+					env.GIT_LAST_COMMIT_USER2 = sh (script: '"C:/Program Files/Git/bin/git.exe" log $GIT_PREVIOUS_COMMIT..$GIT_COMMIT --pretty=format:%an', returnStdout: true).trim()
 					
 					env.LS = sh (script: 'ls -l', returnStdout: true).trim()
 					
