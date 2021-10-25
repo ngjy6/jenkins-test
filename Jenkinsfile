@@ -18,7 +18,7 @@ pipeline {
 					env.LS = sh (script: 'ls -l', returnStdout: true).trim()
 					
 					env.REPO_NAME = sh(script: 'echo $(basename ${GIT_URL%.git})', returnStdout: true)
-					echo "${env.REPO_NAME}"
+					echo "Git repo name: ${env.REPO_NAME}"
 					
 				}
 				
@@ -39,7 +39,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Pylint..'
+		sh '''#!/bin/bash
+			python3 -m venv ~/.somevenv
+			source ~/.somevenv/bin/activate
+			pip install --upgrade pip &&\
+  			pip install -r requirements.txt
+			touch __init__.py
+			python -m pylint --output-formate=parseable.py
+		'''
             }
         }
         stage('Deploy') {
