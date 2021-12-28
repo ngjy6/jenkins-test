@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
 	environment {
-		HOME=${env.WORKSPACE}"
+		HOME="${env.WORKSPACE}"
 	}
 	
 	
