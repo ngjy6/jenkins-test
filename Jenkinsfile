@@ -51,6 +51,8 @@ pipeline {
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
+			sudo apt-get install wget
+			sudo apt-get install curl
 			which wget
 			which curl
 		        curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
