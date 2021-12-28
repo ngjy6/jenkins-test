@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
-			curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
+			curl -o menu.pdf http://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
 			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m venv ~/.somevenv
 			source "C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/.somevenv/bin/activate"
 			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install --upgrade pip &&\
