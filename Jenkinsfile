@@ -43,6 +43,7 @@ pipeline {
             }
         }
         stage('Test') {
+	    agent any
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
