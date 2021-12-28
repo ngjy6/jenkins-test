@@ -1,7 +1,6 @@
 pipeline {
     agent any
 	environment {
-		HOME="${env.WORKSPACE}"
 		PATH = "C:\\Program Files\\Git\\bin"
 	}
 	
