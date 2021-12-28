@@ -50,15 +50,8 @@ pipeline {
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
-			rm menu.pdf
 			curl -o menu.pdf http://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
 			pwd
-			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m venv ~/.somevenv
-			source "C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/.somevenv/bin/activate"
-			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install --upgrade pip &&\
-  			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install -r requirements.txt
-			touch __init__.py
-			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m pylint --output-format=parseable
 		'''
             }
         }
