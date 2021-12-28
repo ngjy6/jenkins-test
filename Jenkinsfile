@@ -1,5 +1,9 @@
 pipeline {
     agent any
+	
+	environment {
+		PATH = "C:\\Program Files\\Git\\bin"
+	}
     stages {
         stage('Build') {
             steps {
@@ -20,13 +24,14 @@ pipeline {
 			env.JOB_NAME_UNDERSCORE = env.JOB_NAME.replaceAll('/', '_')
 
 		}
-				
+
 		echo "Git commit message: ${env.GIT_COMMIT_MSG}"
 
 		echo "Git last commit user: ${env.GIT_LAST_COMMIT_USER}"
 		echo "Git last commit user2: ${env.GIT_LAST_COMMIT_USER2}"
 		echo "Git author: ${env.GIT_AUTHOR}"
 		echo "Git commiter name: ${env.GIT_COMMITTER_NAME}"
+
 
 		echo "Env job name: ${env.JOB_NAME}"
 		echo "Env job name underscore: ${env.JOB_NAME_UNDERSCORE}"
@@ -35,17 +40,28 @@ pipeline {
 		echo "Env workspace: ${env.WORKSPACE}"
 		echo "Env workspace temp: ${env.WORKSPACE_TMP}"
 
-		echo "Env LS: ${env.LS}"				
+		echo "Env LS: ${env.LS}"
+				
+				
             }
         }
-        stage('Example Username/Password') {
+        stage('Test') {
             steps {
-                sh '''#!/bin/bash
-                echo "Service user is"
-                curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
-                pwd
-                ls -l
-                '''
+                echo 'Pylint..'
+		sh '''#!/bin/bash
+			curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m venv ~/.somevenv
+			source "C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/.somevenv/bin/activate"
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install --upgrade pip &&\
+  			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/Scripts/pip.exe" install -r requirements.txt
+			touch __init__.py
+			"C:/Users/STARLORD/AppData/Local/Programs/Python/Python37/python3.exe" -m pylint --output-format=parseable
+		'''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
