@@ -3,6 +3,7 @@ pipeline {
 	
     stages {
         stage('Build') {
+		agent any
             steps {
                 echo 'Building..'
 		echo "Git commit: ${env.GIT_COMMIT}"
@@ -43,6 +44,7 @@ pipeline {
             }
         }
         stage('Test') {
+		agent any
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
