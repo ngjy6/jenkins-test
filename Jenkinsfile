@@ -51,7 +51,7 @@ pipeline {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
 			curl -o menu.pdf http://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
-			pwd
+			echo $PWD
 		'''
             }
         }
