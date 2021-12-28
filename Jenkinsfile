@@ -1,8 +1,5 @@
 pipeline {
     agent any
-	environment {
-		PATH = "C:\\Program Files\\Git\\bin"
-	}
 	
     stages {
         stage('Build') {
@@ -50,6 +47,7 @@ pipeline {
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
+			which curl
 			curl -o menu.pdf http://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
 			pwd
 			ls -l
