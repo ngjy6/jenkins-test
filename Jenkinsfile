@@ -4,6 +4,9 @@ pipeline {
     stages {
         stage('Build') {
 		agent any
+		environment {
+		PATH = "C:\\Program Files\\Git\\bin"
+	}
             steps {
                 echo 'Building..'
 		echo "Git commit: ${env.GIT_COMMIT}"
