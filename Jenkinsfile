@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 	
     stages {
         stage('Build') {
@@ -43,11 +43,9 @@ pipeline {
             }
         }
         stage('Test') {
-	    agent any
             steps {
                 echo 'Pylint..'
 		sh '''#!/bin/bash
-			which curl
 			curl -o menu.pdf http://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf
 			pwd
 			ls -l
