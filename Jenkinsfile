@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Building..'
 				echo "Git commit: ${env.GIT_COMMIT}"
-		    sh 'curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf'
+		    sh '/bin/curl -o menu.pdf https://www.marinabaysands.com/content/dam/revamp/restaurants/restaurant-details/black-tap/menus/BT-Menu.pdf'
 				// test
 				script {
 					env.GIT_COMMIT_MSG = sh (script: '"C:/Program Files/Git/bin/git.exe" log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
